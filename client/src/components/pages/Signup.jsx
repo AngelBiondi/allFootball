@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import Login from './Login';
 
 export default class Signup extends Component {
   constructor(props) {
@@ -38,11 +39,11 @@ export default class Signup extends Component {
     return (
       <div className="Signup">
         <h2>Signup</h2>
-        <form>
-          Username: <input type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> <br />
-          Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> <br />
-          Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> <br />
-          <button onClick={(e) => this.handleClick(e)}>Signup</button>
+        <form className = "form-align">
+          <div className = "inline-form">Username: <input type="text" value={this.state.username} name="username" onChange={this.handleInputChange} /> </div>
+          <div className = "inline-form">Name: <input type="text" value={this.state.name} name="name" onChange={this.handleInputChange} /> </div>
+          <div className = "inline-form">Password: <input type="password" value={this.state.password} name="password" onChange={this.handleInputChange} /> </div>
+          <button className="btn draw-border" onClick={(e) => this.handleClick(e)}>Signup</button>
         </form>
         {this.state.message && <div className="info info-danger">
           {this.state.message}

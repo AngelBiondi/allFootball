@@ -63,26 +63,16 @@ export default {
 
   // This is an example on how to use this method in a different file
   // api.getCountries().then(countries => { /* ... */ })
-  getCountries() {
-    return service
-      .get('/countries')
-      .then(res => res.data)
-      .catch(errHandler)
+ 
+
+  getCrowdScores(){
+    return axios.get('https://api.crowdscores.com/v1/matches?team_id=1&round&api_key=0da1c6891148485083d478471b73cef7')
   },
 
-  addCountry(body) {
-    return service
-      .post('/countries', body)
-      .then(res => res.data)
-      .catch(errHandler)
+  getTeamName(){
+    return axios.get('https://api.crowdscores.com/v1/teams?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7')
   },
 
-  getSecret() {
-    return service
-      .get('/secret')
-      .then(res => res.data)
-      .catch(errHandler)
-  },
 
   addPicture(file) {
     const formData = new FormData()

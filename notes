@@ -1,0 +1,59 @@
+import React, { Component } from 'react';
+import api from '../../api';
+
+export default class search extends Component {
+  constructor(props) {
+    super(props)
+    this.state = {
+      data:[]
+    }
+  }
+  
+  render() {
+
+    getTeams = ( ) => {
+      api.getTeamName().then(dataFromAPI=>{
+        console.log(dataFromAPI.data)
+        this.setState({
+          data:dataFromAPI.data
+        })
+      })
+    }
+  
+    showData = () => {
+      return this.state.data.map(eachData => {
+        return <li>{eachData.venue.name}</li>
+      })
+    }                
+        return (
+          <div className="Home">
+            <h2>Matches</h2>
+            <button onClick={this.getTeams}>getTeams</button>
+    
+            <p>Live matches stats</p>
+            {this.showData()}
+    
+          </div>
+        );
+      
+   
+  }
+    }
+
+
+
+
+
+
+          <h3>{eachData.start}</h3>
+          <h3>{eachData.homeTeam}</h3>
+          <h3>{eachData.awayTeam}</h3>
+          <h3>{eachData.outcome}</h3>
+          <h3>{eachData.isResult}</h3>
+          <h3>{eachData.competition}</h3>
+          <h3>{eachData.aggregateScore}</h3>
+          <h3>{eachData.dbid}</h3>
+          <h3>{eachData.round}</h3>
+          <h3>{eachData.penaltyShootout}</h3>
+          <h3>{eachData.homeGoals}</h3>
+          <h3>{eachData.awayGoals}</h3>

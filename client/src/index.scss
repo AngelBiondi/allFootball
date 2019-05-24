@@ -3,22 +3,6 @@
 $primary: #32c3ff;
 
 
-// ----------------------------------------
-// To install Boostrap:
-// 1) Run in the client folder: $ npm i bootstrap
-// 2) Import bootstrap with the following line
-// @import '../node_modules/bootstrap/scss/bootstrap.scss';
-// 
-// To install Reactstrap:
-// 1) Run in the client folder: $ npm i reactstrap
-// 2) Go to the official documentation and take some examples: https://reactstrap.github.io/
-// import { Button } from 'reactstrap';
-// <Button color="danger">Danger!</Button>
-// ----------------------------------------
-
-
-// --------------------
-// Style reusable for all components
 body {
   margin: 0;
   padding: 0;
@@ -52,6 +36,8 @@ body {
     background-color: $primary;
     padding: 20px;
     color: white;
+    height: 55px;
+
 
     a {
       color: white;
@@ -66,6 +52,7 @@ body {
 
   .App-title {
     font-size: 1.5em;
+    float: left;
   }
 
   .App-intro {
@@ -99,3 +86,111 @@ body {
     color: $primary;
   }
 }
+
+.logo {
+  width: 50px;
+ 
+}
+
+.hlogo{
+  width: 70px;
+  float: left;
+}
+
+.Sign {
+  float: right;
+  margin-top: 12.5px;
+}
+
+.Sign a {
+  font-size: 27px;
+}
+
+.bottom-bar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.form-align {
+  width: 25vw;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.form-align input {
+  float: right;
+}
+
+.inline-form {
+  // display: inline;
+  margin-bottom: 10px;
+}
+
+@mixin btn-border-drawing($color: #ccc, $hover: black, $width: 2px, $vertical: top, $horizontal: left, $duration: 0.25s) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+  
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: '';
+    pointer-events: none;
+    position: absolute;
+    width: 0; height: 0;
+    
+    #{$vertical}: 0; 
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == 'left', 'right', 'left');
+    
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+  
+  &::after {
+    $v-side: if($vertical == 'top', 'bottom', 'top');
+    
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+  
+  &:hover {
+    color: $hover;
+    
+    &::before,
+    &::after {
+      border-color: $hover;
+      transition: border-color 0s, width $duration, height $duration;
+      width: 100%;
+      height: 100%;
+    }
+    
+    &::before { transition-delay: 0s, 0s, $duration; }
+    
+    &::after { transition-delay: 0s, $duration, 0s; }
+  }
+}
+
+.draw-border {
+  @include btn-border-drawing(#58afd1, #ffe593, 4px, bottom, right);
+}
+
+//=== Button styling, semi-ignore
+.btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font: 700 1.2rem 'Roboto Slab', sans-serif;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  
+  &:focus { outline: 2px dotted #55d7dc; }
+}
+
