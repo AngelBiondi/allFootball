@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import {Switch, Route, Redirect, Link} from 'react-router-dom';
+import matchdetails from "./matchdetails";
+
 
 export default class matches extends Component {
   constructor(props) {
@@ -25,8 +28,8 @@ export default class matches extends Component {
     return this.state.data.map(eachData => {
       return (
         <div>
-          <h3>{eachData.isResult}</h3>
-          <h3>{eachData.dbid}</h3>
+<h1>{eachData.dbid}</h1>
+          <h2><Link to = {`/matchdetails/${eachData.dbid}`}>{eachData.homeTeam.shortName} vs. {eachData.awayTeam.shortName} </Link></h2>
           <h3>{eachData.homeTeam.shortName}</h3>
           <h3>{eachData.homeGoals}</h3>
           <h3>{eachData.awayTeam.shortName}</h3>

@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 import api from '../../api';
+import {Switch, Route, Redirect, Link} from 'react-router-dom';
+// import teamdetails from './teamdetails';
+
 
 export default class search extends Component {
   constructor(props) {
@@ -14,8 +17,8 @@ export default class search extends Component {
 componentDidMount() {
   this.getTeams()
 } 
-
   getTeams = () => {
+    
     api.getTeamName().then(dataFromAPI => {
       console.log(dataFromAPI.data)
       this.setState({
@@ -24,7 +27,6 @@ componentDidMount() {
       })
     })
   }
-  
   filterTeams = (e) => {
     console.log(e.target.value)
     let teams = [...this.state.data]
@@ -37,20 +39,20 @@ componentDidMount() {
   }
   showData = () => {
     return this.state.teams.map(eachData => {
-      return <li>{eachData.name}</li>
+      return <li className="read"  data-id={ `${eachData.dbid}` } > <Link to = {`/teamdetails/${eachData.dbid}`}> {eachData.name} </Link> </li>
     })
   }
   render() {
 
     return (
       <div className="Home">
-        <h2>Teams</h2>
-        {this.state.loading? "Loading..." : 
+        <h2>Teams ....</h2>
+       {this.state.loading? "Loading..." : 
       
-      <input type="text" label="search for a team" onChange={this.filterTeams} />
+        <input type="text" label="search for a team" onChange={this.filterTeams} />
        }
         <p>Search for your favorite Team</p>
-        {this.showData()}
+      {this.showData()}
 
       </div>
     );

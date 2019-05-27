@@ -73,6 +73,10 @@ export default {
     return axios.get('https://api.crowdscores.com/v1/teams?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7')
   },
 
+  getTeamDetailss(id){
+    let link = `https://api.crowdscores.com/v1/teams/${id}?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7`;
+    return axios.get(link);
+  },
 
   addPicture(file) {
     const formData = new FormData()

@@ -57,3 +57,4 @@ export default class search extends Component {
           <h3>{eachData.penaltyShootout}</h3>
           <h3>{eachData.homeGoals}</h3>
           <h3>{eachData.awayGoals}</h3>
+🔍

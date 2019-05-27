@@ -4,6 +4,8 @@ import Home from './pages/matches';
 import search from './pages/search';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
+import teamdetails from './pages/teamdetails';
+import matchdetails from './pages/matchdetails';
 import api from '../api';
 
 import axios from 'axios'
@@ -50,7 +52,9 @@ export default class App extends Component {
             <Route path="/search" component={search} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            
+            <Route path="/matchdetails" component={matchdetails} />
+            <Route path="/teamdetails" component={teamdetails} />
+
           </Switch>
           <footer className="bottom-bar App-header">
             <NavLink to="/" exact><img className="logo" src={sportLogo} alt="test" /></NavLink>
