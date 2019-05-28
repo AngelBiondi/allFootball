@@ -66,28 +66,33 @@ export default {
  
 
   getCrowdScores(){
-    return axios.get('https://api.crowdscores.com/v1/matches?team_id=1&round&api_key=0da1c6891148485083d478471b73cef7')
+    return axios.get('https://api.crowdscores.com/v1/matches?team_id=1&round&api_key=a9a6dc503ecb42f9b5192feb48731b17')
   },
 
   getTeamName(){
-    return axios.get('https://api.crowdscores.com/v1/teams?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7')
+    return axios.get('https://api.crowdscores.com/v1/teams?round_ids&competition_ids&api_key=a9a6dc503ecb42f9b5192feb48731b17')
   },
 
-  getTeamDetailss(id){
-    let link = `https://api.crowdscores.com/v1/teams/${id}?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7`;
+  getDetailsTeam(id){
+    let link = `https://api.crowdscores.com/v1/teams/${id}?round_ids&competition_ids&api_key=a9a6dc503ecb42f9b5192feb48731b17`;
     return axios.get(link);
   },
+getDetailsMatches(id){
+  let seclink = `https://api.crowdscores.com/v1/matches/${id}?round_ids&competition_ids&api_key=a9a6dc503ecb42f9b5192feb48731b17`;
+  return axios.get(seclink)
+}
+  
 
-  addPicture(file) {
-    const formData = new FormData()
-    formData.append("picture", file)
-    return service
-      .post('/endpoint/to/add/a/picture', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      })
-      .then(res => res.data)
-      .catch(errHandler)
-  },
+  // addPicture(file) {
+  //   const formData = new FormData()
+  //   formData.append("picture", file)
+  //   return service
+  //     .post('/endpoint/to/add/a/picture', formData, {
+  //       headers: {
+  //         'Content-Type': 'multipart/form-data',
+  //       },
+  //     })
+  //     .then(res => res.data)
+  //     .catch(errHandler)
+  // },
 }

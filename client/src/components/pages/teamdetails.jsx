@@ -7,48 +7,35 @@ export default class teamdetails extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            data: []
+            data: {
+              players:[]
+            }
         }
     }
     componentDidMount() {
-        this.getTeamDetails()
+        //this.getTeamDetails()
+        api.getDetailsTeam(this.props.match.params.id).then(dataFromAPI => {
+          console.log ( dataFromAPI.data );
+           this.setState({data:dataFromAPI.data})
+         } );
     }
-    getTeamDetails = () => {
-      let Datateam;
-        api.getTeamDetailss(382).then(dataFromAPI => {
-            console.log("-------------------------------------", dataFromAPI.data)
-            Datateam = dataFromAPI.data;
-            this.state.data = Datateam;
-            console.log(Datateam);
-          })
-          
-        console.log("itworks?", ...this.state.data)
-        }
-        
-        showData = () => {
-          return this.state.data.map(eachData => {
-            return (
-              
-              <div>
-                   <h2>{eachData.name}</h2>
-                   <h2>{eachData.shirtUrl}</h2>
-                   <h2>{eachData.shortCode}</h2>
-                   <h2>{eachData.shortName}</h2>
-                   <h2>{eachData.showCardStats}</h2>
-                </div>
-            )
-        })
+
+    showPlayers = ( ) => {
+      return this.state.data.players.map(eachPlayer =>{
+        return <li>{eachPlayer.name} | {eachPlayer.number}</li>
+      })
     }
+  
     render() {
       
         return (
             <div className="Home">
-                {this.state.loading ? "Loading..." : ""}
-
-
-               
-                {this.showData()}
-
+                {this.state.loading ? "Loading..." : ""}               
+  
+                {this.state.data.name}
+                <img src={this.state.data.shirtUrl} />
+                {this.showPlayers()}
+                
             </div>
         );
     }

@@ -29,7 +29,7 @@ export default class matches extends Component {
       return (
         <div>
 <h1>{eachData.dbid}</h1>
-          <h2><Link to = {`/matchdetails/${eachData.dbid}`}>{eachData.homeTeam.shortName} vs. {eachData.awayTeam.shortName} </Link></h2>
+          <h2><Link to = {`/matchdetails/$`}>{eachData.homeTeam.shortName} vs. {eachData.awayTeam.shortName} </Link></h2>
           <h3>{eachData.homeTeam.shortName}</h3>
           <h3>{eachData.homeGoals}</h3>
           <h3>{eachData.awayTeam.shortName}</h3>

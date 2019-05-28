@@ -52,8 +52,8 @@ export default class App extends Component {
             <Route path="/search" component={search} />
             <Route path="/signup" component={Signup} />
             <Route path="/login" component={Login} />
-            <Route path="/matchdetails" component={matchdetails} />
-            <Route path="/teamdetails" component={teamdetails} />
+            <Route path="/matchdetails/:id" component={matchdetails} />
+            <Route path="/teamdetails/:id" component={teamdetails} />
 
           </Switch>
           <footer className="bottom-bar App-header">
