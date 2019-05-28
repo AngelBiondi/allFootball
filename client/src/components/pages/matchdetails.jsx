@@ -25,7 +25,19 @@ showMatches = ( ) => {
   if(this.state.data.matchevents) {
     return this.state.data.matchevents.map(eachMatch =>{
       console.log("the maps ---------------------- ", eachMatch)
-      return <li>  {eachMatch.dbid} </li> 
+      return(
+        <div>
+       
+          <li> <img src={eachMatch.homeTeam.shirtUrl}/> </li>
+         <li>  {eachMatch.homeGoals} </li>
+         <li> <img src={eachMatch.awayTeam.shirtUrl}/> </li>
+         <li>  {eachMatch.awayGoals} </li>
+         <li>{eachMatch.round.name}</li>
+         <li>{eachMatch.scoringSide}</li>
+      
+          <li> Gametime: {eachMatch.matchTime.minutes} mins.</li>
+        </div>
+        ) 
     })
   }
 }
@@ -35,7 +47,7 @@ render() {
     return (
         <div className="Home">
             {this.state.loading ? "Loading..." : ""}               
-
+             
             {/* {this.state.data.matchevents} */}
             {this.showMatches()}
             
