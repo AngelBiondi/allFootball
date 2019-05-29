@@ -21,18 +21,30 @@ componentDidMount() {
 }
 
 showMatches = ( ) => {
-  console.log("the state ----- ", this.state)
+  console.log("the state ----- ", this.state.data.round)
+  
+
+  {/* <li>{eachMatch.round.name}</li> */}
+
+  
+
   if(this.state.data.matchevents) {
+    console.log(this.state.data.matchevents)
+    // <li>{state.data.matchevents[0].round.name}</li>
+
     return this.state.data.matchevents.map(eachMatch =>{
       console.log("the maps ---------------------- ", eachMatch)
+
       return(
-        <div>
-       
-          <li> <img src={eachMatch.homeTeam.shirtUrl}/> </li>
+        <div className="tdetails">
+ <div className = "scores">
+          <li> <img className="shirt" src={eachMatch.homeTeam.shirtUrl}/> </li>
          <li>  {eachMatch.homeGoals} </li>
-         <li> <img src={eachMatch.awayTeam.shirtUrl}/> </li>
+         <li> - </li>
          <li>  {eachMatch.awayGoals} </li>
-         <li>{eachMatch.round.name}</li>
+         <li> <img className="shirt" src={eachMatch.awayTeam.shirtUrl}/> </li>
+</div>
+         {/* <li>{eachMatch.round.name}</li> */}
          <li>{eachMatch.scoringSide}</li>
       
           <li> Gametime: {eachMatch.matchTime.minutes} mins.</li>
@@ -43,9 +55,10 @@ showMatches = ( ) => {
 }
 
 render() {
-  
+  // console.log(this.state.data.round)
     return (
         <div className="Home">
+          
             {this.state.loading ? "Loading..." : ""}               
              
             {/* {this.state.data.matchevents} */}

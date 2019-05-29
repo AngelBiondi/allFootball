@@ -22,6 +22,10 @@ body {
   background-color: #e73f3f;
 }
 
+li {
+  list-style: none;
+}
+
 // --------------------
 // Style for App component
 .App {
@@ -194,3 +198,20 @@ body {
   &:focus { outline: 2px dotted #55d7dc; }
 }
 
+.shirt {
+  width: 7vw;
+} 
+
+.tdetails {
+font-size: 40px;
+background-color: rgba(0,0,0,.2);
+padding: 10px 0;
+border: grey;
+border-radius: 20px;
+margin: 10px;
+// width: 50vw;
+}
+
+.scores {
+  display: inline-flex;
+}
