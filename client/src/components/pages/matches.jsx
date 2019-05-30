@@ -27,15 +27,16 @@ export default class matches extends Component {
   showData = () => {
     return this.state.data.map(eachData => {
       return (
-        <div className="matches" > <Link to = {`/matchdetails/$`}> 
-{/* <h1>{eachData.dbid}</h1> */}
-          
-          <h3>{eachData.homeTeam.shortName}</h3>
-          <h3>{eachData.homeGoals}</h3>
-          <h3>{eachData.awayGoals}</h3>
-          <h3>{eachData.awayTeam.shortName}</h3>
-          {/* <h3>{eachData.aggregateScore}</h3> */}
+
+        <div className="matches" > <Link to = {`/matchdetails/${eachData.dbid}`} className="linksd"> 
+     <ul>
+         <li>  <h3 className="maatches">{eachData.homeTeam.shortName}</h3> </li>
+        <li className = "score-box">  <h3>{eachData.homeGoals} - {eachData.awayGoals}</h3></li>
+        {/* <li> <h3></h3></li> */}
+        <li>  <h3 className="maatches">{eachData.awayTeam.shortName}</h3></li>
+       </ul>
            </Link>
+           <hr className="hrsty"/> 
       </div>
           )
         })
@@ -44,12 +45,13 @@ export default class matches extends Component {
     return (
       <div className="Home">
             <h2>Matches</h2>
+            <div className = "all-matches">
             {this.state.loading? "Loading..." : ""}
             
 
-            <p>Live matches stats</p>
+         
             {this.showData()}
-
+</div>
           </div>
           );
         }

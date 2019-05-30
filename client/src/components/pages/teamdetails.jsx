@@ -22,19 +22,24 @@ export default class teamdetails extends Component {
 
     showPlayers = ( ) => {
       return this.state.data.players.map(eachPlayer =>{
-        return <li>{eachPlayer.name} | {eachPlayer.number}</li>
+  
+        return <li>{eachPlayer.number} <img className="tshirt2" src={this.state.data.shirtUrl} /> {eachPlayer.name} <hr className="hrsty hrsty2"></hr>   </li>
+   
       })
     }
   
     render() {
       
         return (
-            <div className="Home">
+            <div className="pdetails">
                 {this.state.loading ? "Loading..." : ""}               
   
-                {this.state.data.name}
-                <img src={this.state.data.shirtUrl} />
+               <h1> {this.state.data.name} </h1>
+                <img className="tshirt" src={this.state.data.shirtUrl} />
+
+                <ul className = "player-list">
                 {this.showPlayers()}
+                </ul>
                 
             </div>
         );

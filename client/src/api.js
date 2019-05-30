@@ -66,19 +66,19 @@ export default {
  
 
   getCrowdScores(){
-    return axios.get('https://api.crowdscores.com/v1/matches?team_id=1&round&api_key=a9a6dc503ecb42f9b5192feb48731b17')
+    return axios.get('https://api.crowdscores.com/v1/matches?team_id=1&round&api_key=0da1c6891148485083d478471b73cef7')
   },
 
   getTeamName(){
-    return axios.get('https://api.crowdscores.com/v1/teams?round_ids&competition_ids&api_key=a9a6dc503ecb42f9b5192feb48731b17')
+    return axios.get('https://api.crowdscores.com/v1/teams?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7')
   },
 
   getDetailsTeam(id){
-    let link = `https://api.crowdscores.com/v1/teams/${id}?round_ids&competition_ids&api_key=a9a6dc503ecb42f9b5192feb48731b17`;
+    let link = `https://api.crowdscores.com/v1/teams/${id}?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7`;
     return axios.get(link);
   },
 getDetailsMatches(id){
-  let seclink = `https://api.crowdscores.com/v1/matches/${id}?round_ids&competition_ids&api_key=a9a6dc503ecb42f9b5192feb48731b17`;
+  let seclink = `https://api.crowdscores.com/v1/matches/${id}?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7`;
   return axios.get(seclink)
 }
   

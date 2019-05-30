@@ -13,7 +13,7 @@ export default class matchdetails extends Component {
     }
 }
 componentDidMount() {
-    //this.getTeamDetails()
+    
     api.getDetailsMatches(this.props.match.params.id).then(dataFromAPI => {
       console.log ( dataFromAPI.data );
        this.setState({data:dataFromAPI.data})
@@ -24,13 +24,15 @@ showMatches = ( ) => {
   console.log("the state ----- ", this.state.data.round)
   
 
-  {/* <li>{eachMatch.round.name}</li> */}
+
 
   
 
   if(this.state.data.matchevents) {
     console.log(this.state.data.matchevents)
-    // <li>{state.data.matchevents[0].round.name}</li>
+    // console.log(this.state.data.matchevents[this.state.data.matchevents.length - 1])
+
+   
 
     return this.state.data.matchevents.map(eachMatch =>{
       console.log("the maps ---------------------- ", eachMatch)
@@ -38,13 +40,15 @@ showMatches = ( ) => {
       return(
         <div className="tdetails">
  <div className = "scores">
-          <li> <img className="shirt" src={eachMatch.homeTeam.shirtUrl}/> </li>
+          <li>  <img className="shirt" src={eachMatch.homeTeam.shirtUrl}/> </li>
+
          <li>  {eachMatch.homeGoals} </li>
-         <li> - </li>
+         <li> : </li>
          <li>  {eachMatch.awayGoals} </li>
-         <li> <img className="shirt" src={eachMatch.awayTeam.shirtUrl}/> </li>
+
+         <li>  <img className="shirt" src={eachMatch.awayTeam.shirtUrl}/> </li>
 </div>
-         {/* <li>{eachMatch.round.name}</li> */}
+     
          <li>{eachMatch.scoringSide}</li>
       
           <li> Gametime: {eachMatch.matchTime.minutes} mins.</li>
@@ -55,13 +59,14 @@ showMatches = ( ) => {
 }
 
 render() {
-  // console.log(this.state.data.round)
+
     return (
-        <div className="Home">
+        <div className="Home Homee">
+          {/* <h1>Home team vs. Away team</h1> */}
           
             {this.state.loading ? "Loading..." : ""}               
              
-            {/* {this.state.data.matchevents} */}
+            
             {this.showMatches()}
             
         </div>

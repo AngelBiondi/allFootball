@@ -24,8 +24,13 @@ body {
 
 li {
   list-style: none;
+  text-decoration: none;
+  color: black;
 }
 
+Link {
+  text-decoration: none;
+}
 // --------------------
 // Style for App component
 .App {
@@ -46,7 +51,7 @@ li {
     a {
       color: white;
       padding: 0 5px;
-      text-decoration: unset;
+      text-decoration: none;
     }
 
     a.active {
@@ -77,9 +82,13 @@ li {
 // --------------------
 // Style for Home component
 .Home {
+ 
   p {
     font-size: 1.2em;
   }
+}
+.HomePutas {
+  padding-left: 40%;
 }
 
 // --------------------
@@ -203,15 +212,113 @@ li {
 } 
 
 .tdetails {
-font-size: 40px;
-background-color: rgba(0,0,0,.2);
-padding: 10px 0;
-border: grey;
-border-radius: 20px;
-margin: 10px;
-// width: 50vw;
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  border: rgba(24, 24, 24, 0.801);
+  border-radius: 0px;
+  margin: 10px;
+  width: 229px;
+  padding-left: 5px;
+  padding-bottom: 13px;
+  padding-right: 12px;
+  padding-top: 21px;
 }
+
+
+.tdetails {
+  font-size: 12px;
+  background-color: rgba(0, 0, 0, 0.1);
+  padding: 15px 0;
+  border: rgba(24, 24, 24, 0.801);
+  border-radius: 0px;
+  margin: 10px;
+  width: 229px;
+  padding-left: 5px;
+  padding-bottom: 13px;
+  padding-right: 12px;
+  padding-top: 21px;
+  }
 
 .scores {
   display: inline-flex;
+}
+
+.matches {
+  display: inline;
+  // justify-content: space-between;
+  // width: 20vw;
+}
+
+.matches ul{
+  display: flex;
+  width: 70vw;
+  justify-content: space-between;
+  margin-left: 10vw;
+}
+
+.matches ul li {
+  width: 8vw;
+  height: 3vw;
+  padding-bottom: 3vh;
+  text-underline-position: unset;
+}
+
+.tshirt {
+  width: 18vw;
+} 
+
+.tshirt2 {
+  width: 2vw;
+} 
+
+.all-matches {
+  display: flex;
+  flex-wrap: wrap;
+ 
+ 
+}
+
+.player-list {
+  margin-bottom: 150px;
+}
+
+// .lbox {
+
+// }
+
+.score-box {
+  border: 0.1px solid grey;
+  border-radius: 0px;
+  background: #bbd0e2;
+  // width: 17vw;
+}
+
+.read a {
+  text-decoration: none;
+  color: black;
+}
+
+.read a:hover {
+  color: red;
+  transition: .5s;
+}
+
+.hrsty {
+  background-color: white;
+   border-top: 1px;
+}
+
+.hrsty2 {
+  width: 50%;
+}
+
+.maatches {
+  color: #81afd8;
+    font-size: 15.5px;
+    font-weight: lighter;
+   
+}
+.linksd {
+  text-decoration: unset;
 }
