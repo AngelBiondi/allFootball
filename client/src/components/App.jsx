@@ -37,7 +37,7 @@ export default class App extends Component {
       <div className="App">
         <header className="App-header">
           <img className="hlogo" src={realLogo} alt="test" />
-          <h1 className="App-title">All Soccer Live!!</h1>
+          <h1 className="App-title">All Soccer Live</h1>
           <div className="Sign">
             {!api.isLoggedIn() && <NavLink to="/signup">Sign up</NavLink>}
             {!api.isLoggedIn() && <NavLink to="/login">Log in</NavLink>}
