@@ -1,9 +1,10 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
+
 const favteamSchema = new Schema({
   name: String,
-  apiId: String,
+  team: Object,
   userId: String
 });
 
