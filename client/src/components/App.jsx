@@ -7,12 +7,14 @@ import Signup from './pages/Signup';
 import teamdetails from './pages/teamdetails';
 import matchdetails from './pages/matchdetails';
 import api from '../api';
-
+import favteamm from './pages/favteamm'
 import axios from 'axios'
 import matches from './pages/matches';
 import sportLogo from '../images/sport.svg';
+import star from '../images/star.png';
 import searchLogo from '../images/search.png'
 import realLogo from '../images/reallogo.png'
+import arrow from '../images/arrow.png';
 
 export default class App extends Component {
   constructor(props) {
@@ -54,11 +56,13 @@ export default class App extends Component {
             <Route path="/login" component={Login} />
             <Route path="/matchdetails/:id" component={matchdetails} />
             <Route path="/teamdetails/:id" component={teamdetails} />
+            <Route path="/favteamm" component={favteamm} />
 
           </Switch>
           <footer className="bottom-bar App-header">
             <NavLink to="/" exact><img className="logo" src={sportLogo} alt="test" /></NavLink>
             <NavLink to="/search"><img className="logo" src={searchLogo} alt="test" /></NavLink>
+            <NavLink to="/favteamm"><img className="logo" src={star} alt="test" /></NavLink>
           </footer>
 
 

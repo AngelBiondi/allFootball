@@ -80,8 +80,24 @@ export default {
 getDetailsMatches(id){
   let seclink = `https://api.crowdscores.com/v1/matches/${id}?round_ids&competition_ids&api_key=0da1c6891148485083d478471b73cef7`;
   return axios.get(seclink)
-}
+},
+saveTheTeam(team){
+    console.log(team)
+    return service
+      .post(`/addFave`,{team})
+      .then(res => {
+        return res.data
+      })
+      .catch(errHandler) 
+},
+  fetchTeam(){
+    return service
+      .get('/myTeam')
+      .then(res=>res.data)
+      .catch(errHandler)
+  }
   
+
 
   // addPicture(file) {
   //   const formData = new FormData()

@@ -49,7 +49,7 @@ componentDidMount() {
         <h2>Teams ....</h2>
        {this.state.loading? <marquee scrollamount="15" direction="right"><p>Search for your favorite Team</p></marquee>: 
       
-        <input type="text" label="search for a team" onChange={this.filterTeams} />
+        <input type="text" placeholder="Search teams" label="search for a team" onChange={this.filterTeams} />
        }
         
       {this.showData()}

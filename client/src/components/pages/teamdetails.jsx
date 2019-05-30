@@ -27,7 +27,13 @@ export default class teamdetails extends Component {
    
       })
     }
-  
+  saveTeam = () => {
+    api.saveTheTeam(this.state.data).then(teamSaved=>{
+      console.log(this, teamSaved)
+    })
+  }
+
+
     render() {
       
         return (
@@ -35,7 +41,8 @@ export default class teamdetails extends Component {
                 {this.state.loading ? "Loading..." : ""}               
   
                <h1> {this.state.data.name} </h1>
-                <img className="tshirt" src={this.state.data.shirtUrl} />
+                <img className="tshirt" src={this.state.data.shirtUrl} /> 
+                <button className='btn draw-border' onClick={this.saveTeam}>Set as Favorite Team</button>
 
                 <ul className = "player-list">
                 {this.showPlayers()}
