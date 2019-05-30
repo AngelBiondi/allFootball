@@ -3,7 +3,8 @@ const Schema = mongoose.Schema;
 
 const userSchema = new Schema({
   username: String,
-  password: String
+  password: String,
+  faveTeam: {type: [{type: Schema.Types.ObjectId, ref: 'Faveteam'}]}
 }, {
     timestamps: {
       createdAt: 'created_at',

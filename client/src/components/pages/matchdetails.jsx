@@ -33,7 +33,7 @@ componentDidMount() {
 }
 
 showMatches = ( ) => {
-  console.log("the state ----- ", this.state.data.round)
+  console.log("the state ----- ", this.state.data)
   
 
 
@@ -41,28 +41,54 @@ showMatches = ( ) => {
   
 
   if(this.state.data.matchevents) {
-   // console.log(this.state.data.matchevents)
+
+
+   console.log(this.state.data.matchevents)
+
+
+  //  console.log(type)
     // console.log(this.state.data.matchevents[this.state.data.matchevents.length - 1])
 
-   
-
     return this.state.data.matchevents.map(eachMatch =>{
+
      // console.log("the maps ---------------------- ", eachMatch)
 
+
+
       return(
+
+
+
         <div className="tdetails">
  <div className = "scores">
           <li>  <img className="shirt" src={eachMatch.homeTeam.shirtUrl}/> </li>
 
-         <li>  {eachMatch.homeGoals} </li>
-         <li> : </li>
-         <li>  {eachMatch.awayGoals} </li>
+        
+         <li className = "spread">  {eachMatch.homeGoals} - {eachMatch.awayGoals} </li>
+         
 
          <li>  <img className="shirt" src={eachMatch.awayTeam.shirtUrl}/> </li>
 </div>
      
          <li>{eachMatch.scoringSide}</li>
-      
+         
+
+         {eachMatch.type === "substitution" ? 
+          <li>{eachMatch.playerOn.name} 🔄 {eachMatch.playerOff.name}</li>
+         :''
+         }
+ 
+ {eachMatch.type === "card" ? 
+          <li>{eachMatch.player.name} <a href="http://www.sherv.net/"><img alt="Yellow Card" width="43px" height="41px" src="http://www.sherv.net/cm/emoticons/football/yellow-card-smiley-emoticon.gif"/></a></li>
+         :''
+         }
+ 
+ {eachMatch.type === "goal" ? 
+          <li> ⚽ {eachMatch.scoringPlayer.name}</li>
+         :''
+         }
+ 
+        
           <li> Gametime: {eachMatch.matchTime.minutes} mins.</li>
         </div>
         ) 
@@ -74,7 +100,7 @@ render() {
 
     return (
         <div className="Home Homee">
-          {/* <h1>Home team vs. Away team</h1> */}
+         
           
             {this.state.loading ? "Loading..." : ""}               
              

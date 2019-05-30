@@ -233,8 +233,10 @@ Link {
   border: rgba(24, 24, 24, 0.801);
   border-radius: 0px;
   margin: 10px;
-  width: 229px;
-  padding-left: 5px;
+  margin-left: 20vw;
+  margin-right: 20vw;
+  width: 40vw;
+  padding-left: 12px;
   padding-bottom: 13px;
   padding-right: 12px;
   padding-top: 21px;
@@ -245,6 +247,7 @@ Link {
 }
 
 .matches {
+  font-size: 18px;
   display: inline;
   // justify-content: space-between;
   // width: 20vw;
@@ -258,8 +261,8 @@ Link {
 }
 
 .matches ul li {
-  width: 8vw;
-  height: 3vw;
+  width: 12vw;
+  height: 5vw;
   padding-bottom: 3vh;
   text-underline-position: unset;
 }
@@ -281,6 +284,9 @@ Link {
 
 .player-list {
   margin-bottom: 150px;
+  // margin-left: 30vw;
+  // margin-right: 30vw;
+  // width: 40vw;
 }
 
 // .lbox {
@@ -321,4 +327,8 @@ Link {
 }
 .linksd {
   text-decoration: unset;
+}
+
+.spread {
+  margin: 0 2vw;
 }
